@@ -13,7 +13,7 @@ app.use(function validateBearToken(req,res,next){
   const apiToken = '1'//Here would be *process.env.API_TOKEN*
 console.log(bearerToken)
 console.log(apiToken)
-  if(!bearerToken || bearerToken!==apiToken){
+  if(!bearerToken || bearerToken.split(' ')[1]!==apiToken){
     return res.status(401).json({error: "Unautherized request"})
   }
   console.log('Moving onto nexxt')
